@@ -9,12 +9,41 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBAction func btn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func fatal(_ sender: Any) {
+        fatalError()
+    }
+    //
+    
+    override func viewWillAppear(_ animated: Bool) {
+        sayMyName(#function)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        sayMyName(#function)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        sayMyName(#function)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        sayMyName(#function)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        sayMyName(#function)
+        
+        // This Method Call before the bound are defined and rotation happen. So its Risky to work view size in this method.
     }
-
-
+    
+    deinit {
+        print("deinit")
+    }
 }
 
